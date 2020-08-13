@@ -16,11 +16,10 @@ class Command(BaseCommand):
 		total = kwargs['total']
 		for i in range(total):
 			user = User.objects.create_user(username=get_random_string(), password='Abhi@2020', first_name=names.get_first_name(), last_name=names.get_last_name())
+			
 			timezone = choice(['Australia/Melbourne', 'US/Eastern', 'Canada/Eastern', 'Asia/Kolkata', 'America/Los_Angeles'])
 			up = UserProfile(user=user, timezone=timezone)
 			up.save()
-			
-			print(timezone)
 
 			month = randrange(1, 12)
 			day = randrange(1, 29)
@@ -31,7 +30,9 @@ class Command(BaseCommand):
 			for _ in range(randrange(2, 6)):
 				start_time = date
 				end_time = start_time + datetime.timedelta(minutes=+randrange(1, 59))
+
 				user.activityperiod_set.create(start_time=start_time, end_time=end_time)
+				
 				date = date + datetime.timedelta(days=+randrange(100))
 				date = date + datetime.timedelta(hours=+randrange(24))
 				date = date + datetime.timedelta(minutes=+randrange(60))
