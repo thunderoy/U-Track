@@ -10,7 +10,6 @@ class ActivityPeriodSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = ActivityPeriod
 		fields = ('start_time', 'end_time')
-		ordered= ('start_time',)
 
 
 class UserSerializer(serializers.ModelSerializer):
