@@ -6,6 +6,9 @@ import names
 from random import choice, randrange
 import datetime
 
+# Python file for custom management command to populate the database
+# with dummy User and activity period data
+
 class Command(BaseCommand):
 	help = 'Create random users with activity periods'
 
@@ -32,7 +35,7 @@ class Command(BaseCommand):
 				end_time = start_time + datetime.timedelta(minutes=+randrange(1, 59))
 
 				user.activityperiod_set.create(start_time=start_time, end_time=end_time)
-				
+
 				date = date + datetime.timedelta(days=+randrange(100))
 				date = date + datetime.timedelta(hours=+randrange(24))
 				date = date + datetime.timedelta(minutes=+randrange(60))
