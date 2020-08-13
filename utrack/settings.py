@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'src.apps.SrcConfig',
     'rest_framework',
+    'names',
 ]
 
 MIDDLEWARE = [
